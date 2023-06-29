@@ -1,4 +1,9 @@
-collection_template
-===================
+Examples of the Effective C++ series
+=======================================
 
-template for collection repos
+Effective C++
+
+More Effective C++
+
+Effective Modern C++
+
