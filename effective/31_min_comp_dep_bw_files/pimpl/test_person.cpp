@@ -1,4 +1,10 @@
-// g++ test_person.cpp -o test_person && ./test_person
+// compile all files together:
+// g++ test_person.cpp person.cpp -o test_person && ./test_person
+
+// compile person.cpp into a library:
+// g++ -c person.cpp -o person.o
+// then compile test_person.cpp with the library:
+// g++ test_person.cpp person.o -o test_person && ./test_person
 
 #include <iostream>
 #include "person.h"

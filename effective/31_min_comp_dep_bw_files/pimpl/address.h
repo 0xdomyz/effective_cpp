@@ -1,3 +1,6 @@
+#ifndef ADDRESS_H
+#define ADDRESS_H
+
 #include <string>
 
 class Address
@@ -9,3 +12,5 @@ public:
 private:
     std::string theAddress;
 };
+
+#endif // ADDRESS_H

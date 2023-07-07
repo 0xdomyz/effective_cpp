@@ -1,3 +1,6 @@
+#ifndef PERSON_H
+#define PERSON_H
+
 #include <string> // standard library components
                   // shouldn’t be forward-declared
 #include <memory> // for tr1::shared_ptr; see below
@@ -18,3 +21,9 @@ public:
 private:                               // ptr to implementation;
     std::shared_ptr<PersonImpl> pImpl; // see Item 13 for info on
 };                                     // std::tr1::shared_ptr
+
+#include "date.h"    // now that Date is
+#include "address.h" // complete, we can
+                     // #include its header file
+
+#endif // PERSON_H

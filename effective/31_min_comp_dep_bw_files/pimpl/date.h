@@ -1,3 +1,6 @@
+#ifndef DATE_H
+#define DATE_H
+
 #include <string>
 
 class Date
@@ -9,3 +12,5 @@ public:
 private:
     std::string theDate;
 };
+
+#endif // DATE_H
