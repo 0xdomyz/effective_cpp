@@ -1,6 +1,6 @@
-// g++ decl_and_func.cpp -o decl_and_func && ./decl_and_func
+// g++ client.cpp -o client && ./client
 
-class Date;                     // class declaration
+#include "datefwd.h"
 Date today();                   // fine — no definition
 void clearAppointments(Date d); // of Date is needed
 
