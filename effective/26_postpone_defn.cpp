@@ -1,4 +1,4 @@
-// g++ 26_postpone_defn.cpp -o postpone_defn && ./postpone_defn
+// g++ 26_postpone_defn.cpp -o 26_postpone_defn && ./26_postpone_defn
 
 #include <string>
 #include <iostream>
