@@ -7,3 +7,4 @@ More Effective C++
 
 Effective Modern C++
 
+Effective STL
