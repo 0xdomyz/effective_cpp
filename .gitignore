@@ -9,6 +9,9 @@
 
 ### Above combination will ignore all files without extension ###
 
+# ignore .out
+*.out
+
 #ignore test data
 *.csv
 
