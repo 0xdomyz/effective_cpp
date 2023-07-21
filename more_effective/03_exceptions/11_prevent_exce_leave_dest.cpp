@@ -1,7 +1,6 @@
 // g++ 11_prevent_exce_leave_dest.cpp -o test && ./test
 
-// We thus find ourselves with two good reasons for keeping exceptions
-// from propagating out of destructors.
+// reasons:
 
 // First, it prevents terminate from
 // being called during the stack-unwinding part of exception propagation.
