@@ -1,0 +1,1 @@
+// g++ 25_virtualizing_constructors_and_non_member_functions.cpp -o 25_virtualizing_constructors_and_non_member_functions && ./25_virtualizing_constructors_and_non_member_functions

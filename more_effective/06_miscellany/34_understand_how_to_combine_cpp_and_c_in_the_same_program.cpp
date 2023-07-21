@@ -1,0 +1,1 @@
+// g++ 34_understand_how_to_combine_cpp_and_c_in_the_same_program.cpp -o 34_understand_how_to_combine_cpp_and_c_in_the_same_program && ./34_understand_how_to_combine_cpp_and_c_in_the_same_program

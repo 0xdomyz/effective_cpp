@@ -1,0 +1,1 @@
+// g++ 35_familiarize_yourself_with_the_language_standard.cpp -o 35_familiarize_yourself_with_the_language_standard && ./35_familiarize_yourself_with_the_language_standard

@@ -1,0 +1,1 @@
+// g++ 22_consider_using_opequal_instead_of_stand_alone_op.cpp -o 22_consider_using_opequal_instead_of_stand_alone_op && ./22_consider_using_opequal_instead_of_stand_alone_op

@@ -1,0 +1,1 @@
+// g++ 31_making_functions_virtual_with_respect_to_more_than_one_object.cpp -o 31_making_functions_virtual_with_respect_to_more_than_one_object && ./31_making_functions_virtual_with_respect_to_more_than_one_object
