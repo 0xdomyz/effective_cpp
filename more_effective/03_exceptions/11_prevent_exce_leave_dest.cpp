@@ -8,6 +8,11 @@
 // Second, it helps ensure that destructors always accomplish everything
 // they are supposed to accomplish
 
+// methods to achieve this:
+
+// 1. use try-catch block in destructor
+// 2. use a destructor-try-block
+
 #include <iostream>
 
 using namespace std;
