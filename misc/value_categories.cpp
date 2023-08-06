@@ -24,6 +24,11 @@
 // temporary). Also, every class and array prvalue has a result object except
 // when it is the operand of decltype;
 
+// glvalue
+// ############################################################################
+// A glvalue (“generalized” lvalue) is an expression whose evaluation determines
+// the identity of an object or function;
+
 // xvalue
 // ############################################################################
 // An xvalue (an “eXpiring” value) is a glvalue that denotes an object whose
@@ -36,13 +41,30 @@
 // left-hand side of an assignment expression) is a glvalue that is not an
 // xvalue;
 
-// other mixed categories
+// rvalue
 // ############################################################################
 // An rvalue (so-called, historically, because rvalues could appear on the
 // right-hand side of an assignment expression) is a prvalue or an xvalue.
 
-// A glvalue (“generalized” lvalue) is an expression whose evaluation determines
-// the identity of an object or function;
+// properties
+// ############################################################################
+// glvalue
+
+// A glvalue may be implicitly converted to a prvalue with lvalue-to-rvalue,
+// array-to-pointer, or function-to-pointer implicit conversion.
+// A glvalue may be polymorphic: the dynamic type of the object it identifies is not
+// necessarily the static type of the expression.
+// A glvalue can have incomplete type, where permitted by the expression.
+
+// rvalue
+
+// Address of an rvalue cannot be taken by built-in address-of operator: &int(), &i++[3],
+//  &42, and &std::move(x) are invalid.
+// An rvalue can't be used as the left-hand operand of the built-in assignment or compound
+//  assignment operators.
+// An rvalue may be used to initialize a const lvalue reference, in which case the
+// lifetime of the object identified by the rvalue is extended until the scope of the
+// reference ends.
 
 #include <iostream>
 #include <vector>
@@ -81,6 +103,8 @@ int main()
 
         // Object initialization with temporary materialization
         std::string s = std::string("hello") + " world"; // std::string("hello") is a prvalue that creates a temporary string object with value "hello", which is then concatenated with " world" to create a new string object that initializes the string object s
+
+        // &(std::string("hello") + " world");
     }
 
     {
@@ -88,10 +112,12 @@ int main()
 
         int x = 42;
         int &&r1 = std::move(x);
+        r1;
         // std::move(x) is an xvalue that represents the value of x, which can be moved from
         int &&r2 = std::move(42);
         // std::move(42) is an xvalue that represents the value 42, which can be moved from
         std::vector<int>().push_back(42);
+        // 42 is an xvalue that can be modified
 
         struct Person
         {
@@ -104,6 +130,20 @@ int main()
 
         // Access the non-static data member 'name' of the temporary Person object using a member of object expression
         std::string name = std::move(p).name;
+
+        // &std::move(p).name;
+
+        // polymorphic xvalue
+        struct Base
+        {
+            virtual ~Base() {}
+        };
+        struct Derived : Base
+        {
+        };
+
+        Derived d;
+        Base &&b = std::move(d); // std::move(d) is an xvalue that identifies the Derived object d
     }
 
     {
@@ -115,6 +155,18 @@ int main()
         // "hello" is a prvalue that creates a temporary string object,
         // but s is an lvalue that refers to the string object that persists beyond
         // the expression
+
+        // polymorphic lvalue
+        struct Base
+        {
+            virtual ~Base() {}
+        };
+        struct Derived : Base
+        {
+        };
+
+        Derived d;
+        Base &b = d; // the lvalue b refers to the Base subobject of the Derived object d
     }
 
     {
