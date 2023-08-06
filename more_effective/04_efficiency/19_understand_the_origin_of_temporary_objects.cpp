@@ -1,5 +1,24 @@
 // g++ 19_understand_the_origin_of_temporary_objects.cpp -o 19_understand_the_origin_of_temporary_objects && echo "r rt56fr" | ./19_understand_the_origin_of_temporary_objects
 
+// Summary: Understand the Origin of Temporary Objects
+// ---------------------------------------------------
+
+// The chapter "Understand the Origin of Temporary Objects" from the book "More
+// Effective C++" discusses the creation and use of temporary objects in C++. The
+// chapter covers the following topics:
+
+// - The motivation for using temporary objects
+// - The creation of temporary objects during expression evaluation
+// - The use of temporary objects to implement type conversions
+// - The use of temporary objects to implement copy constructors and assignment operators
+// - The use of temporary objects to implement function return values
+// - The use of temporary objects to implement exception handling
+
+// The chapter provides guidelines for understanding and managing temporary objects,
+// and explains the advantages and disadvantages of using temporary objects. The
+// chapter also provides examples of how to use temporary objects, and discusses
+// common pitfalls and best practices for using temporary objects effectively.
+
 // arise whenever a non-heap object is created but not named.
 // when implicit type conversions are applied to make function
 // calls succeed
