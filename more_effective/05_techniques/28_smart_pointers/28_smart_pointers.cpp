@@ -46,6 +46,22 @@ int main()
         string str = "Hello";
         unique_ptr<string> myUniquePtr3 = make_unique<string>(str);
         delete myUniquePtr3.release(); // The object is deleted.
+
+        // test for null
+        {
+            unique_ptr<int> ptr;
+            assert(ptr == nullptr);
+
+            ptr = make_unique<int>(42);
+            assert(ptr != nullptr);
+        }
+
+        // comparison of differnet unique_ptr
+        {
+            unique_ptr<int> ptr1 = make_unique<int>(42);
+            unique_ptr<int> ptr2 = make_unique<int>(42);
+            assert(ptr1 != ptr2);
+        }
     }
 
     {
