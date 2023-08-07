@@ -13,14 +13,39 @@ int main()
         // unique_ptr is used to manage ownership of a dynamically allocated object.
         // It ensures that the object is deleted when the unique_ptr goes out of scope.
         // unique_ptr cannot be copied, only moved.
+
+        // create
         unique_ptr<int> myUniquePtr = make_unique<int>(42);
 
+        // access
         assert(*myUniquePtr == 42);
 
+        // copy
         // unique_ptr<int> myUniquePtr2 = myUniquePtr; // Error: unique_ptr cannot be copied.
+
+        // assign
+        unique_ptr<int> myUniquePtr6;
+        // myUniquePtr6 = myUniquePtr; // Error: unique_ptr cannot be copied.
+
+        // move
         unique_ptr<int> myUniquePtr2 = move(myUniquePtr); // OK: unique_ptr can be moved.
 
+        // destroy
         myUniquePtr = nullptr; // The object is deleted.
+
+        // destroy with reset()
+        unique_ptr<int> myUniquePtr4 = make_unique<int>(42);
+        myUniquePtr4.reset(); // The object is deleted.
+
+        // destry by going out of scope
+        {
+            unique_ptr<int> myUniquePtr5 = make_unique<int>(42);
+        } // The object is deleted.
+
+        // destroy with release()
+        string str = "Hello";
+        unique_ptr<string> myUniquePtr3 = make_unique<string>(str);
+        delete myUniquePtr3.release(); // The object is deleted.
     }
 
     {
