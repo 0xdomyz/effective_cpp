@@ -1,3 +1,8 @@
+#ifndef RCIPTR_H
+#define RCIPTR_H
+
+#include "RCObject.h"
+
 template <class T>
 class RCIPtr
 {
@@ -78,3 +83,5 @@ T &RCIPtr<T>::operator*() const
 {
     return *(counter->pointee);
 }
+
+#endif // RCIPTR_H ///:~

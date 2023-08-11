@@ -1,28 +1,51 @@
-class Widget
+#ifndef STRING_H
+#define STRING_H
+
+#include "RCIPtr.h"
+
+class String
 {
 public:
-    Widget(int size);
-    Widget(const Widget &rhs);
-    ~Widget();
-    Widget &operator=(const Widget &rhs);
-    void doThis();
-    int showThat() const;
+    String(const char *value = "");
+    String(const String &rhs);
+    ~String();
+    String &operator=(const String &rhs);
+
+    const char &operator[](int index) const;
+    char &operator[](int index); // will mark the StingValue as unshareable
+
+    char *get_data() const { return data; } // instrumented to test copy-on-write
+
+private:
+    char *data;
+    void init(const char *initValue);
 };
 
-class RCWidget
+class RCString
 {
 public:
-    RCWidget(int size) : value(new Widget(size)) {}
-    void doThis()
+    RCString(const char *v = "") : value(new String(v)) {}
+
+    char &operator[](int index)
     {
         if (value.getRCObject().isShared())
         {                               // do COW if
-            value = new Widget(*value); // Widget is shared
+            value = new String(*value); // String is shared
         }
-        value->doThis();
+        return value->operator[](index);
     }
-    int showThat() const { return value->showThat(); }
+    const char &operator[](int index) const
+    {
+        return value->operator[](index);
+        // which operator[] to call?
+    }
+    RCIPtr<String> &get_data() // instrumented to test copy-on-write
+    {
+        return value;
+    };
 
 private:
-    RCIPtr<Widget> value;
+    RCIPtr<String> value;
 };
+
+#endif // STRING_H ///:~
