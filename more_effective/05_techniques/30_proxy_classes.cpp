@@ -65,6 +65,33 @@
 // lvalues in contexts other than just assignment, and using proxies in
 // such contexts usually yields behavior different from using real objects
 
+// In general, taking the address of a proxy yields a different
+// type of pointer than does taking the address of a real object.
+//
+// overload the address-of operator to solve
+
+// if we have a template for reference-counted
+// arrays that use proxy classes to distinguish lvalue and rvalue invocations of
+// operator[]
+//
+// then there are operators that require lvalues, including operator*=, operator<<=,
+//  operator--, operator++, has to be overloaded to work with proxy classes
+
+// A related problem has to do with invoking member functions on real
+// objects through proxies. To be blunt about it, you can’t
+
+// when being passed to functions that take references to non-const objects
+// in an example, swap takes char& parameters, not a proxy object
+//  the char to which it may be converted can’t be bound to swap’s
+// char& parameters, because that char is a temporary object
+
+// When a proxy object is implicitly converted into the real object it stands for,
+// a user-defined conversion function is invoked.
+// compilers may use only one user-defined conversion function when
+// converting a parameter at a call site into the type needed.
+// it is possible for function
+// calls that succeed when passed real objects to fail when passed proxies
+
 // evaluation
 // #################
 //
@@ -78,3 +105,5 @@
 // Additionally, proxy objects often exhibit behavior
 //     that is subtly different from that of the real objects they represent, which can
 //     change the semantics of the class.
+//     but in many cases there is little
+//      need for the operations that would make the presence of proxies apparent to clien
