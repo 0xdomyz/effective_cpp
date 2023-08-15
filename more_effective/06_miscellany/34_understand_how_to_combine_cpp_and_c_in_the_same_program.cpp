@@ -1,21 +1,11 @@
 // g++ 34_understand_how_to_combine_cpp_and_c_in_the_same_program.cpp -o 34_understand_how_to_combine_cpp_and_c_in_the_same_program && ./34_understand_how_to_combine_cpp_and_c_in_the_same_program
 
-// Summary: Understand How to Combine C++ and C in the Same Program
-// ----------------------------------------------------------------
-
-// The chapter "Understand How to Combine C++ and C in the Same Program" from the
-// book "More Effective C++" discusses the techniques for combining C++ and C code
-// in the same program. The chapter covers the following topics:
-
-// - The differences between C and C++ code
-// - The use of extern "C" to declare C functions in C++ code
-// - The use of C++ classes in C code
-// - The use of C++ templates in C code
-// - The use of C++ exceptions in C code
-// - The use of C++ namespaces in C code
-
-// The chapter provides guidelines for designing and implementing programs that
-// combine C++ and C code, and explains the advantages and disadvantages of each
-// approach. The chapter also provides examples of how to use each technique, and
-// discusses common pitfalls and best practices for combining C++ and C code in the
-// same program.
+If you want to mix C++ and C in the same program, remember the following simple guidelines:
+■ Make sure the C++ and C compilers produce compatible object
+files.
+■ Declare functions to be used by both languages extern "C".
+■ If at all possible, write main in C++.
+■ Always use delete with memory from new; always use free with
+memory from malloc.
+■ Limit what you pass between the two languages to data structures
+that compile under C; the C++ version of structs may contain nonvirtual member functions.
