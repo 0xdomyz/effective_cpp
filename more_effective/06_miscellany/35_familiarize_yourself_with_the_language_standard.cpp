@@ -1,21 +1,39 @@
 // g++ 35_familiarize_yourself_with_the_language_standard.cpp -o 35_familiarize_yourself_with_the_language_standard && ./35_familiarize_yourself_with_the_language_standard
 
-// Summary: Familiarize Yourself with the Language Standard
-// --------------------------------------------------------
+// capabilities of the std
+// Support for the standard C library
+// Support for strings
+// Support for localization
+// Support for I/O
+// Support for numeric applications
+// Support for general-purpose containers and algorithms, STL
 
-// The chapter "Familiarize Yourself with the Language Standard" from the book
-// "More Effective C++" discusses the importance of understanding the C++ language
-// standard and its evolution. The chapter covers the following topics:
+// two idiosyncrasies
+//
+// 1
+// almost everything in the library is a template
+// generalize it
+// and make the generalization a template — is repeated throughout the
+// standard C++ library.
+//
+// 2
+// virtually everything it contains is inside the namespace std
 
-// - The motivation for understanding the C++ language standard
-// - The history of the C++ language standard and its evolution
-// - The differences between C++ language versions
-// - The use of language features introduced in newer C++ versions
-// - The use of compiler-specific extensions and their impact on portability
-// - The use of third-party libraries and their impact on language standard compliance
+// If the
+// pointer points to the element beyond the end of the array, it can be
+// The C++ Language and Library Standard 281
+// compared only to other pointers to the array; the results of dereferencing it are undefined
 
-// The chapter provides guidelines for staying up-to-date with the C++ language
-// standard, and explains the advantages and disadvantages of using newer language
-// features and compiler-specific extensions. The chapter also provides examples of
-// how to use newer language features, and discusses common pitfalls and best
-// practices for using the C++ language standard effectively.
+// At its core, STL is very simple. It is just a collection of class and function
+// templates that adhere to a set of conventions
+//
+// The STL collection
+// classes provide functions like begin and end that return iterator objects of types
+//  defined by the classes. The STL algorithm functions move
+// through collections of objects by using iterator objects over STL collections.
+// STL iterators act like pointers
+
+//  As long as
+// you follow the STL conventions, the standard STL collections will work
+// with your algorithms and your collections will work with the standard
+// STL algorithms.
