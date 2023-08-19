@@ -1,0 +1,1 @@
+// g++ 20_use_weak_ptr_4_shared_ptr_like_that_can_dangle.cpp -o 20_use_weak_ptr_4_shared_ptr_like_that_can_dangle && ./20_use_weak_ptr_4_shared_ptr_like_that_can_dangle
