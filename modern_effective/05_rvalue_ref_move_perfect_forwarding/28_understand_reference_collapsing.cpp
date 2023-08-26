@@ -9,5 +9,10 @@
 // ences is an lvalue reference, the result is an lvalue reference. Otherwise it’s an
 // rvalue reference.
 //
-// • Universal references are rvalue references in contexts where type deduction
-// distinguishes lvalues from rvalues and where reference collapsing occurs.
+// • Universal references are rvalue references in contexts where
+// type deduction distinguishes lvalues from rvalues
+// Lvalues of type T are
+// deduced to have type T&, while rvalues of type T yield T as their deduced type.
+//
+// and where reference collapsing occurs.
+//
